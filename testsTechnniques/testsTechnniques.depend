@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1402135041 source:e:\moncode\version2014\teststechnniques\main.cpp
+	<string>
+	<sstream>
+	<iostream>
+	<vector>
+	<memory>
+	<fstream>
+
