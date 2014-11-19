@@ -22,13 +22,14 @@ void Souris::testToi()
 
     Souris * Parent12=  new Souris("p12",GParent1,RandGP1); Parent12->sex = Sex::Male;
     Souris * RandP2 =  new Souris("rgp1"); RandP2->sex = Sex::Femelle ;
-    Souris * cousine = new Souris("rgp1",RandP2,Parent12); Moi->sex = Sex::Femelle ;
+    Souris * cousine = new Souris("rgp1",RandP2,Parent12); cousine->sex = Sex::Femelle ;
 
     Souris * oncle_degres2=  new Souris("p12",GParent2,RandGP2); oncle_degres2->sex = Sex::Male;
     Souris * tante_degres2 =  new Souris("rgp1"); tante_degres2->sex = Sex::Femelle ;
 
-    Souris * cousine_issue = new Souris("rgp1",oncle_degres2,tante_degres2); Moi->sex = Sex::Femelle ;
+    Souris * cousine_issue = new Souris("rgp1",oncle_degres2,tante_degres2); cousine_issue->sex = Sex::Femelle ;
 
+    Souris * autre =  new Souris("agp"); autre->sex = Sex::Male ;
 
     assert(! Moi->isFuckable(AGrandMere1),"pas AGM");
     assert(! Moi->isFuckable(AGrandPere2),"pas AGP");
@@ -41,6 +42,19 @@ void Souris::testToi()
     assert(! Moi->isFuckable(Parent12),"pas tante :)");
     assert(! Moi->isFuckable(cousine),"pas cousin :)");
     assert( Moi->isFuckable(cousine_issue),"Ok cousine_issue :)");
+
+    cout << "fin moi, debut autre "<< endl;
+    assert( autre->isFuckable(AGrandMere1),"Ok AGM");
+    assert(! autre->isFuckable(AGrandPere2),"pas AGP");
+    assert( autre->isFuckable(GParent1),"Ok GM");
+    assert(! autre->isFuckable(RandGP1),"pas GP");
+    assert(! autre->isFuckable(Parent11),"pas P");
+    assert( autre->isFuckable(RandP1),"Ok M");
+    assert( autre->isFuckable(MaSoeur),"Ok Soeur");
+    assert(! autre->isFuckable(autre),"pas Moi :)");
+    assert(!autre->isFuckable(Parent12),"pas tante :)");
+    assert( autre->isFuckable(cousine),"Ok cousin :)");
+    assert( autre->isFuckable(cousine_issue),"Ok cousine_issue :)");
 }
 
 
@@ -81,10 +95,14 @@ bool Souris::aPourCousinProche (Souris const * const other ) const
     // si on trouve qqch, c'est qu'on est != en .end() on doit retourner vrais
     return (std::find(setEnRelation.begin(),setEnRelation.end(),other)!=setEnRelation.end());
 }
+
+
+// Par du postulat qu'on pas de truc genre "Ma grand mere est ma mere aussi"
 vector<Souris*> Souris::getDescendance () const
 {
     vector<Souris*> descendance;
     descendance.insert(descendance.end(),enfantDirectEnVie.begin(),enfantDirectEnVie.end());
+    /// Ne faire des modifications sur le tableau qu'on parcours dans un foreach que quand on est sexy (et sur de soi)
     for (Souris* enfant : enfantDirectEnVie )
     {
         auto descendanceEnfant = enfant->getDescendance();
@@ -118,6 +136,9 @@ return false;
 }
 bool Souris::isFuckable (Souris const * const other ) const
 {
+ // techniquement il peut le niquer, juste ba ça fera pas des enfants
+ if (! isOpositeSex(other)) return false;
+
  // don't fuck your parent, U sick bastard
  if ( aPourAncetre(other) ) return false;
 
