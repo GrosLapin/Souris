@@ -31,30 +31,30 @@ void Souris::testToi()
 
     Souris * autre =  new Souris("agp"); autre->sex = Sex::Male ;
 
-    assert(! Moi->isFuckable(AGrandMere1),"pas AGM");
-    assert(! Moi->isFuckable(AGrandPere2),"pas AGP");
-    assert(! Moi->isFuckable(GParent1),"pas GM");
-    assert(! Moi->isFuckable(RandGP1),"pas GP");
-    assert(! Moi->isFuckable(Parent11),"pas P");
-    assert(! Moi->isFuckable(RandP1),"pas P");
-    assert(! Moi->isFuckable(MaSoeur),"pas Soeur");
-    assert(! Moi->isFuckable(Moi),"pas Moi :)");
-    assert(! Moi->isFuckable(Parent12),"pas tante :)");
-    assert(! Moi->isFuckable(cousine),"pas cousin :)");
-    assert( Moi->isFuckable(cousine_issue),"Ok cousine_issue :)");
+    assert_message(! Moi->isFuckable(AGrandMere1),"pas AGM");
+    assert_message(! Moi->isFuckable(AGrandPere2),"pas AGP");
+    assert_message(! Moi->isFuckable(GParent1),"pas GM");
+    assert_message(! Moi->isFuckable(RandGP1),"pas GP");
+    assert_message(! Moi->isFuckable(Parent11),"pas P");
+    assert_message(! Moi->isFuckable(RandP1),"pas P");
+    assert_message(! Moi->isFuckable(MaSoeur),"pas Soeur");
+    assert_message(! Moi->isFuckable(Moi),"pas Moi :)");
+    assert_message(! Moi->isFuckable(Parent12),"pas tante :)");
+    assert_message(! Moi->isFuckable(cousine),"pas cousin :)");
+    assert_message( Moi->isFuckable(cousine_issue),"Ok cousine_issue :)");
 
     cout << "fin moi, debut autre "<< endl;
-    assert( autre->isFuckable(AGrandMere1),"Ok AGM");
-    assert(! autre->isFuckable(AGrandPere2),"pas AGP");
-    assert( autre->isFuckable(GParent1),"Ok GM");
-    assert(! autre->isFuckable(RandGP1),"pas GP");
-    assert(! autre->isFuckable(Parent11),"pas P");
-    assert( autre->isFuckable(RandP1),"Ok M");
-    assert( autre->isFuckable(MaSoeur),"Ok Soeur");
-    assert(! autre->isFuckable(autre),"pas Moi :)");
-    assert(!autre->isFuckable(Parent12),"pas tante :)");
-    assert( autre->isFuckable(cousine),"Ok cousin :)");
-    assert( autre->isFuckable(cousine_issue),"Ok cousine_issue :)");
+    assert_message( autre->isFuckable(AGrandMere1),"Ok AGM");
+    assert_message(! autre->isFuckable(AGrandPere2),"pas AGP");
+    assert_message( autre->isFuckable(GParent1),"Ok GM");
+    assert_message(! autre->isFuckable(RandGP1),"pas GP");
+    assert_message(! autre->isFuckable(Parent11),"pas P");
+    assert_message( autre->isFuckable(RandP1),"Ok M");
+    assert_message( autre->isFuckable(MaSoeur),"Ok Soeur");
+    assert_message(! autre->isFuckable(autre),"pas Moi :)");
+    assert_message(!autre->isFuckable(Parent12),"pas tante :)");
+    assert_message( autre->isFuckable(cousine),"Ok cousin :)");
+    assert_message( autre->isFuckable(cousine_issue),"Ok cousine_issue :)");
 }
 
 

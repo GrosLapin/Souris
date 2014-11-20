@@ -7,22 +7,23 @@
 
 using namespace std;
 
-/*
+
 #include <boost/geometry.hpp>
 #include <boost/geometry/geometries/register/point.hpp>
 #include <boost/geometry/geometries/register/ring.hpp>
 
 BOOST_GEOMETRY_REGISTER_POINT_2D(sf::Vector2f, float, cs::cartesian, x, y) ;
 BOOST_GEOMETRY_REGISTER_POINT_2D(sf::Vector2i, int, cs::cartesian, x, y) ;
-BOOST_GEOMETRY_REGISTER_RING(std::vector<sf::Vector2f>);*/
+BOOST_GEOMETRY_REGISTER_RING(std::vector<sf::Vector2f>);
 
 
 #include "metier/Souris.hpp"
+#include "metier/Terrain.hpp"
 
 int main( int argc, char *argv[])
 {
     Souris::testToi();
-
+    Terrain::TestToi();
 
     exit(5);
 

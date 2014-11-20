@@ -1,6 +1,6 @@
 #include "fonction.hpp"
 
-void assert(bool condition, std::string messageErreur )
+void assert_message(bool condition, std::string messageErreur )
 {
     if ( ! condition )
     {

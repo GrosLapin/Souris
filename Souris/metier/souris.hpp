@@ -34,7 +34,7 @@ public :
 
     Souris (std::string unNom,Souris * const parent1, Souris * const parent2) : name (unNom)
     {
-        assert(parent1->isOpositeSex(*parent2),"Go lire un manuel de biologie");
+        assert_message(parent1->isOpositeSex(*parent2),"Go lire un manuel de biologie");
 
         parentsEnVie.push_back({parent2});
         parentsEnVie.push_back({parent1});
@@ -59,7 +59,7 @@ public :
     std::vector<Souris*> getDescendance () const;
     EtatVie growOld (float milliseconds)
     {
-        assert(milliseconds>0,"On ne veut pas de souris qui remonte le temps");
+        assert_message(milliseconds>0,"On ne veut pas de souris qui remonte le temps");
         return gestionAge.growOld(milliseconds);
     }
 

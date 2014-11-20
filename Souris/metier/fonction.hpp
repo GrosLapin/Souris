@@ -3,6 +3,6 @@
 
 #include <iostream>
 #include <cstdlib> // exit
-void assert(bool condition, std::string messageErreur );
+void assert_message(bool condition, std::string messageErreur );
 
 #endif // fonction_hpp

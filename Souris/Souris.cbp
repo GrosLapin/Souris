@@ -48,10 +48,12 @@
 		<Unit filename="metier/GestionAge.cpp" />
 		<Unit filename="metier/GestionAge.hpp" />
 		<Unit filename="metier/Souris.cpp" />
+		<Unit filename="metier/Terrain.hpp" />
 		<Unit filename="metier/enum.cpp" />
 		<Unit filename="metier/enum.hpp" />
 		<Unit filename="metier/fonction.cpp" />
 		<Unit filename="metier/fonction.hpp" />
+		<Unit filename="metier/infoDeplacement.hpp" />
 		<Unit filename="metier/souris.hpp" />
 		<Extensions>
 			<code_completion />
